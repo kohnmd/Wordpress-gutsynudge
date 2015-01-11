@@ -1,0 +1,10 @@
+/*
+ Theme Name:   Gutsy Nudge
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  Custom theme for Gutsy Nudge website. Child theme of Chillout.
+ Author:       Mike Kohn
+ Author URI:   http://mkohn.net
+ Template:     chillout
+*/
+
+@import url("../chillout/style.css");
