@@ -1,10 +1,36 @@
 /*
- Theme Name:   Gutsy Nudge
- Theme URI:    http://example.com/twenty-fifteen-child/
- Description:  Custom theme for Gutsy Nudge website. Child theme of Chillout.
- Author:       Mike Kohn
- Author URI:   http://mkohn.net
- Template:     chillout
+Theme Name:   Gutsy Nudge
+Theme URI:    http://example.com/twenty-fifteen-child/
+Description:  Custom theme for Gutsy Nudge website. Child theme of Chillout.
+Author:       Mike Kohn
+Author URI:   http://mkohn.net
+Template:     chillout
 */
 
+
+/**
+ * Include parent theme styles.
+ */
 @import url("../chillout/style.css");
+
+
+/**
+ * Custom CSS goes here.
+ */
+
+body.home #col-mask {
+    margin-top: 220px;
+}
+
+body.home .real-content {
+    text-align: center;
+    color: #EFEFEF;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5em !important;
+    font-family: Raleway, sans-serif;
+    color: #EFEFEF;
+}
