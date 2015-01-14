@@ -49,3 +49,26 @@ h1, h2, h3, h4, h5, h6 {
 .chosen-container {
     text-align: left;
 }
+
+.chosen-container-single .chosen-single {
+    height: 50px !important;
+    line-height: 50px;
+    font-size: 1.5em;
+}
+
+.chosen-container-single .chosen-default {
+    text-align: center;
+}
+
+.chosen-container-single .chosen-single div {
+    width: 45px;
+}
+
+.chosen-container-single .chosen-single div b:before {
+    content: "\f063";
+    font-family: FontAwesome;
+}
+
+.chosen-container-single .chosen-single div b {
+    background-image: none !important;
+}

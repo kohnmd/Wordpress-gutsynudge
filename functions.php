@@ -8,7 +8,7 @@ function gutsynudge_scripts(){
     
     // Chillout child theme styles.
     $user_css_deps = $wp_styles->registered['user-css']->deps;
-    wp_enqueue_style( 'style-gutsynudge', get_stylesheet_directory_uri() . '/style.css', $user_css_deps, A13_THEME_VER );
+    wp_enqueue_style( 'style-gutsynudge', get_stylesheet_directory_uri() . '/style.css', array_merge(array('style-chosen'), $user_css_deps), A13_THEME_VER );
 
     // Change loading order of user.css
     array_push($user_css_deps, array('child-style'));
@@ -23,7 +23,7 @@ function gutsynudge_scripts(){
     
     // jQuery Chosen
     wp_enqueue_script( 'jquery_chosen', get_stylesheet_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '1.3.0', true );
-    wp_enqueue_style( 'style-chosen', get_stylesheet_directory_uri() . '/css/chosen.css', array('style-gutsynudge'), '1.3.0' );
+    wp_enqueue_style( 'style-chosen', get_stylesheet_directory_uri() . '/css/chosen.css', null, '1.3.0' );
     
 }
 add_action('wp_enqueue_scripts', 'gutsynudge_scripts', 11);
