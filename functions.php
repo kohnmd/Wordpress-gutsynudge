@@ -1,23 +1,32 @@
 <?php
 
 /**
- * Chillout child theme style includes.
+ * Child theme scripts.
  */
-function a13_child_style(){
+function gutsynudge_scripts(){
     global $wp_styles;
-
-    //use also for child theme style
+    
+    // Chillout child theme styles.
     $user_css_deps = $wp_styles->registered['user-css']->deps;
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri(). '/style.css', $user_css_deps, A13_THEME_VER);
+    wp_enqueue_style( 'style-gutsynudge', get_stylesheet_directory_uri() . '/style.css', $user_css_deps, A13_THEME_VER );
 
-    //change loading order of user.css
+    // Change loading order of user.css
     array_push($user_css_deps, array('child-style'));
 
-    //take it out of queue and insert at end
+    // Take it out of queue and insert at end
     wp_dequeue_style('user-css');
     wp_enqueue_style('user-css');
+    
+    
+    // Custom JS
+    wp_enqueue_script( 'gutsynudge', get_stylesheet_directory_uri() . '/js/gutsynudge.js', array('jquery', 'jquery_chosen'), '20150113', true );
+    
+    // jQuery Chosen
+    wp_enqueue_script( 'jquery_chosen', get_stylesheet_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '1.3.0', true );
+    wp_enqueue_style( 'style-chosen', get_stylesheet_directory_uri() . '/css/chosen.css', array('style-gutsynudge'), '1.3.0' );
+    
 }
-add_action('wp_enqueue_scripts', 'a13_child_style',11);
+add_action('wp_enqueue_scripts', 'gutsynudge_scripts', 11);
 
 
 /**
@@ -69,13 +78,14 @@ function gutsy_nudge_dropdown() {
     
     $output = '<div id="nudge">';
     
-        $output = '<select id="nudge-category">';
-            $output .= '<option value="">Where do you need a nudge?</option>';
+        $output .= '<select id="nudge-category" style="width: 50%;">';
+            $output .= '<option value=""></option>';
         	foreach ($categories as $category) {
             	$output .= '<option value="' . $category->term_id . '">' . $category->name . '</option>';
         	}
         $output .= '</select>';
 	
+	$output .= '</div>';
 	$output .= '<div id="nudge-text-container"></div>';
 	
 	return $output;
