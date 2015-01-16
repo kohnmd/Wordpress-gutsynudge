@@ -29,6 +29,14 @@ function gutsynudge_scripts(){
 add_action('wp_enqueue_scripts', 'gutsynudge_scripts', 11);
 
 
+add_action('wp_head','pluginname_ajaxurl');
+function pluginname_ajaxurl() {
+    echo '
+        <script type="text/javascript">
+            var ajaxurl = "' . admin_url('admin-ajax.php') . '";
+        </script>';
+}
+
 /**
  * Add your functions below, and overwrite native theme functions.
  */
@@ -90,6 +98,50 @@ function gutsy_nudge_dropdown() {
 	
 	return $output;
 }
+
+
+/**
+ * The magic query for getting a random nudge!
+ */
+add_action('wp_ajax_get_nudge', 'get_nudge_callback');
+function get_nudge_callback() {
+    $return = array();
+    
+    if (!empty($_POST['category_id'])) {
+        $category_id = $_POST['category_id'];
+        
+        $args = array(
+            'post_type'         => 'nudge',
+            'category'          => $category_id,
+            'orderby'           => 'rand',
+            'posts_per_page'    => 1
+        );
+        $post = get_posts($args);
+        $post = array_pop($post);
+        
+        if (!empty($post)) {
+            $return['success'] = true;
+            $return['category_name'] = get_the_category_by_ID($category_id);
+            $return['short_description'] = get_field('short_description', $post->ID);
+            $return['long_description'] = get_field('long_description', $post->ID);
+            
+        } else {
+            // Error
+            $return['error'] = true;
+            $return ['message'] = 'No posts found.';
+        }
+        
+    } else {
+        // Error
+        $return['error'] = true;
+        $return ['message'] = 'Invalid category.';
+    }
+    
+    header('Content-Type: application/json');
+    echo json_encode($return);
+    die();
+}
+
 
 
 
