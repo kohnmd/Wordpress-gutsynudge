@@ -61,14 +61,37 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .chosen-container-single .chosen-single div {
-    width: 45px;
+    width: 48px;
+    text-align: center;
+    line-height: 48px;
 }
 
 .chosen-container-single .chosen-single div b:before {
-    content: "\f063";
     font-family: FontAwesome;
+    content: "\f110";
+}
+
+.chosen-container-single .chosen-single div b {
+    -webkit-animation: spin 1.2s infinite linear;
+    animation: spin 1.2s infinite linear;
+}
+
+
+.chosen-container-single .chosen-default div b:before {
+    content: "\f063";
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b:before {
+    content: "\f062";
+}
+
+.chosen-container-single .chosen-default div b,
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+    -webkit-animation: none;
+    animation: none;
 }
 
 .chosen-container-single .chosen-single div b {
     background-image: none !important;
+    color: #999 !important;
 }
