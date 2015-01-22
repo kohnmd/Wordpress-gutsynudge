@@ -84,17 +84,23 @@ function gutsy_nudge_dropdown() {
     	'hide_empty'    => 1
     ));
     
-    $output = '<div id="nudge">';
-    
-        $output .= '<select id="nudge-category" style="width: 50%;">';
+    // Nudge select.
+    $output = '<div id="nudge-select">';
+        $output .= '<select id="nudge-dropdown" style="width: 50%;">';
             $output .= '<option value=""></option>';
         	foreach ($categories as $category) {
             	$output .= '<option value="' . $category->term_id . '">' . $category->name . '</option>';
         	}
         $output .= '</select>';
+	$output .= '</div><!-- #nudge-select -->';
 	
-	$output .= '</div>';
-	$output .= '<div id="nudge-text-container"></div>';
+	// Single nudge template.
+	$output .= '<div id="nudge-single">';
+        $output .= '<h2>Your Gutsy Nudge for <span class="nudge-category"></span></h2>';
+	    $output .= '<div id="nudge-short-description"></div>';
+	    $output .= '<div id="nudge-long-description"></div>';
+	    $output .= '<a href="#more" id="nudge-more-link">More...</a>';
+	$output .= '</div><!-- #nudge-single -->';
 	
 	return $output;
 }
