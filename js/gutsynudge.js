@@ -52,8 +52,10 @@
     });
     
     $nudge_short_description.on('click', 'a.more', function() {
-        $nudge_short_description.hide();
+        //$nudge_short_description.hide();
+        $('a.more', $nudge_short_description).hide();
         $nudge_long_description.fadeIn(700);
+        
     });
     
     
