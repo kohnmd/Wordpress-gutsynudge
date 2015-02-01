@@ -18,6 +18,18 @@ Template:     chillout
  * Custom CSS goes here.
  */
 
+
+/**
+ * white           FFFFFF
+ * creme           FDF9F6
+ * brown           432F25
+ * light brown     695951 (80% opaque)
+ * blue            4F7A92
+ * light blue      7295A8 (80% opaque)
+ */
+
+
+
 @font-face {
     font-family: 'jfspringfairregular';
     src: url('fonts/jfspfair-webfont.eot');
@@ -74,6 +86,12 @@ h1, h2, h3, h4, h5, h6 {
     background-size: contain;
 }
 
+.top-menu > .menu-item:hover:after,
+.top-menu > .menu-item.active:after,
+.top-menu > .menu-item.current-menu-item:after {
+    border-bottom: 2px solid #4F7A92;
+}
+
 
 /**
  * Nudge Stuff
@@ -86,16 +104,16 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
 }
 
-a.vc_btn_white {
-    color: #3D3D3D;
-    background: white !important;
+a.vc_btn {
+    color: #FFFFFF;
+    background: #4F7A92 !important;
 }
 
 a.vc_btn_white:hover,
 a.a13-sc-button:hover {
-    opacity: 1 !important;
-    color: #3D3D3D !important;
-    background: #FFD700 !important;
+    opacity: 0.9 !important;
+    color: #FFFFFF !important;
+    background: #4F7A92 !important;
 }
 
 
@@ -112,13 +130,13 @@ a.a13-sc-button:hover {
     height: 50px !important;
     line-height: 50px;
     font-size: 1.5em;
-    color: #432F24;
-    border: 1px solid #7A5643;
+    color: #4F7A92;
+    border: 1px solid #4F7A92;
 }
 
 .chosen-container-single .chosen-default {
     text-align: center;
-    color: #7A5643;
+    color: #7295A8;
 }
 
 .chosen-container-single .chosen-single div {
@@ -133,7 +151,7 @@ a.a13-sc-button:hover {
 }
 
 .chosen-container-single .chosen-single div b {
-    color: #432F24 !important;
+    color: #4F7A92 !important;
     -webkit-animation: spin 1.2s infinite linear;
     animation: spin 1.2s infinite linear;
     background-image: none !important;
@@ -146,7 +164,7 @@ a.a13-sc-button:hover {
 
 .chosen-container-active.chosen-with-drop .chosen-single,
 .chosen-container .chosen-drop {
-    border: 1px solid #7A5643;
+    border: 1px solid #7295A8;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single {
@@ -163,12 +181,12 @@ a.a13-sc-button:hover {
 
 .chosen-container-single .chosen-default div b,
 .chosen-container-active.chosen-with-drop .chosen-single div b {
-    color: #7A5643 !important;
+    color: #7295A8 !important;
     -webkit-animation: none;
     animation: none;
 }
 
 .chosen-container .chosen-results {
-    color: #7A5643;
+    color: #4F7A92;
 }
 
