@@ -18,15 +18,29 @@ Template:     chillout
  * Custom CSS goes here.
  */
 
+@font-face {
+    font-family: 'jfspringfairregular';
+    src: url('fonts/jfspfair-webfont.eot');
+    src: url('fonts/jfspfair-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/jfspfair-webfont.woff2') format('woff2'),
+         url('fonts/jfspfair-webfont.woff') format('woff'),
+         url('fonts/jfspfair-webfont.ttf') format('truetype'),
+         url('fonts/jfspfair-webfont.svg#jfspringfairregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 body.home #col-mask {
     margin-top: 220px;
 }
 
 body.home .real-content {
     text-align: center;
-    color: #EFEFEF;
-    font-size: 14px;
-    line-height: 24px;
+    color: #432f25;
+    font-size: 16px;
+    line-height: 26px;
 }
 
 body.home #mid {
@@ -36,7 +50,28 @@ body.home #mid {
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em !important;
     font-family: Raleway, sans-serif;
-    color: #EFEFEF;
+    color: #432f25;
+}
+
+
+
+/* logo shield: w 384 x 201 h */
+
+#logo {
+    width: 275px;
+    height: 144px;
+    display: table-cell;
+    vertical-align: middle;
+    position: absolute;
+    left: calc(50% - 138px);
+    line-height: 1;
+    white-space: nowrap;
+    
+    font-family: jfspringfairregular, Raleway, sans-serif;
+    
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 
@@ -46,10 +81,22 @@ h1, h2, h3, h4, h5, h6 {
 
 #nudge-single,
 #nudge-long-description,
-#nudge-more-link {
+#nudge-more-link,
+.nudge-links {
     display: none;
 }
 
+a.vc_btn_white {
+    color: #3D3D3D;
+    background: white !important;
+}
+
+a.vc_btn_white:hover,
+a.a13-sc-button:hover {
+    opacity: 1 !important;
+    color: #3D3D3D !important;
+    background: #FFD700 !important;
+}
 
 
 
@@ -65,10 +112,13 @@ h1, h2, h3, h4, h5, h6 {
     height: 50px !important;
     line-height: 50px;
     font-size: 1.5em;
+    color: #432F24;
+    border: 1px solid #7A5643;
 }
 
 .chosen-container-single .chosen-default {
     text-align: center;
+    color: #7A5643;
 }
 
 .chosen-container-single .chosen-single div {
@@ -83,13 +133,28 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .chosen-container-single .chosen-single div b {
+    color: #432F24 !important;
     -webkit-animation: spin 1.2s infinite linear;
     animation: spin 1.2s infinite linear;
+    background-image: none !important;
 }
 
 
 .chosen-container-single .chosen-default div b:before {
     content: "\f063";
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single,
+.chosen-container .chosen-drop {
+    border: 1px solid #7A5643;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+    border-bottom: 0;
+}
+
+.chosen-container .chosen-drop {
+    border-top: 0;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single div b:before {
@@ -98,11 +163,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .chosen-container-single .chosen-default div b,
 .chosen-container-active.chosen-with-drop .chosen-single div b {
+    color: #7A5643 !important;
     -webkit-animation: none;
     animation: none;
 }
 
-.chosen-container-single .chosen-single div b {
-    background-image: none !important;
-    color: #999 !important;
+.chosen-container .chosen-results {
+    color: #7A5643;
 }
+
