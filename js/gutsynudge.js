@@ -3,9 +3,8 @@
     var $nudge_selection_elems = $('.nudge-title, #nudge-select'),
         $nudge_single_elems = $('#nudge-single, .nudge-links'),
         $nudge_category_title = $('.nudge-category'),
-        $nudge_short_description = $('#nudge-short-description'),
-        $nudge_long_description = $('#nudge-long-description'),
-        $nudge_more_link = $('#nudge-more-link');
+        $nudge_description = $('#nudge-description'),
+        $nudge_blog_link = $('#nudge-blog-link');
     
     
     // Gutsy Nudge dropdown functionality
@@ -30,14 +29,13 @@
                         
                         // Place response data into nudge-single template.
                         $nudge_category_title.html(response.category_name);
-                        $nudge_short_description.html(response.short_description);
+                        $nudge_description.html(response.nudge_description);
                         
-                        // Add a "More" link to the short description if there's a long description.
-                        if (response.long_description != "") {
-                            $nudge_short_description.find(':last-child').append(
-                                $nudge_more_link.clone().removeAttr('id').addClass('more').prepend(' ')
+                        // Add a link to a blog post if there is one.
+                        if (response.blog_link != "") {
+                            $nudge_description.append(
+                                $nudge_blog_link.clone().removeAttr('id').addClass('blog-link').prepend(' ')
                             );
-                            $nudge_long_description.html(response.long_description);
                         }
                         
                         // Show/hide shit.
@@ -48,16 +46,6 @@
             }
         }
     });
-    
-    
-    // "More" link click
-    $nudge_short_description.on('click', 'a.more', function() {
-        //$nudge_short_description.hide();
-        $('a.more', $nudge_short_description).hide();
-        $nudge_long_description.fadeIn(700);
-        
-    });
-    
     
     // Utility function that turns a string into a slug
     function str_to_slug(str, sep) {

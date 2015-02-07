@@ -130,13 +130,23 @@ a.a13-sc-button:hover {
     height: 50px !important;
     line-height: 50px;
     font-size: 1.5em;
-    color: #4F7A92;
+    color: #FFFFFF;
     border: 1px solid #4F7A92;
+    
+    
+    background-color: #7295A8;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #7295A8), color-stop(70%, #4F7A92));
+    background: -webkit-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
+    background: -moz-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
+    background: -o-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
+    background: linear-gradient(top, #7295A8 20%, #4F7A92 70%);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    
 }
 
 .chosen-container-single .chosen-default {
     text-align: center;
-    color: #7295A8;
+    color: #FFFFFF;
 }
 
 .chosen-container-single .chosen-single div {
@@ -151,7 +161,7 @@ a.a13-sc-button:hover {
 }
 
 .chosen-container-single .chosen-single div b {
-    color: #4F7A92 !important;
+    color: #FFFFFF !important;
     -webkit-animation: spin 1.2s infinite linear;
     animation: spin 1.2s infinite linear;
     background-image: none !important;
@@ -168,11 +178,31 @@ a.a13-sc-button:hover {
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single {
+    background-color: #7295A8;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #7295A8), color-stop(40%, #4F7A92));
+    background: -webkit-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
+    background: -moz-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
+    background: -o-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
+    background: linear-gradient(top, #7295A8 20%, #4F7A92 40%);
+    
+    box-shadow: none;
     border-bottom: 0;
 }
 
 .chosen-container .chosen-drop {
+    font-size: 1.2em;
+    background-color: #4F7A92;
     border-top: 0;
+}
+
+.chosen-container .chosen-results li.highlighted {
+  background-color: #fff;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #ffffff), color-stop(50%, #f6f6f6), color-stop(52%, #eeeeee), color-stop(100%, #f4f4f4));
+  background: -webkit-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
+  color: #4F7A92;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single div b:before {
@@ -181,12 +211,12 @@ a.a13-sc-button:hover {
 
 .chosen-container-single .chosen-default div b,
 .chosen-container-active.chosen-with-drop .chosen-single div b {
-    color: #7295A8 !important;
+    color: #FFFFFF !important;
     -webkit-animation: none;
     animation: none;
 }
 
 .chosen-container .chosen-results {
-    color: #4F7A92;
+    color: #FFFFFF;
 }
 

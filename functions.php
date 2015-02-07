@@ -97,9 +97,8 @@ function gutsy_nudge_dropdown() {
 	// Single nudge template.
 	$output .= '<div id="nudge-single">';
         $output .= '<h2>Your Gutsy Nudge for <span class="nudge-category"></span></h2>';
-	    $output .= '<div id="nudge-short-description"></div>';
-	    $output .= '<div id="nudge-long-description"></div>';
-	    $output .= '<a href="#more" id="nudge-more-link">More...</a>';
+	    $output .= '<div id="nudge-description"></div>';
+	    $output .= '<a href="" id="nudge-blog-link">Read more...</a>';
 	$output .= '</div><!-- #nudge-single -->';
 	
 	return $output;
@@ -110,6 +109,7 @@ function gutsy_nudge_dropdown() {
  * The magic query for getting a random nudge!
  */
 add_action('wp_ajax_get_nudge', 'get_nudge_callback');
+add_action('wp_ajax_nopriv_get_nudge', 'get_nudge_callback');
 function get_nudge_callback() {
     $return = array();
     
@@ -128,8 +128,7 @@ function get_nudge_callback() {
         if (!empty($post)) {
             $return['success'] = true;
             $return['category_name'] = get_the_category_by_ID($category_id);
-            $return['short_description'] = get_field('short_description', $post->ID);
-            $return['long_description'] = get_field('long_description', $post->ID);
+            $return['nudge_description'] = get_field('nudge_description', $post->ID);
             
         } else {
             // Error
