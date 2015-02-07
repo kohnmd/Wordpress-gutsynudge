@@ -4,7 +4,10 @@
         $nudge_single_elems = $('#nudge-single, .nudge-links'),
         $nudge_category_title = $('.nudge-category'),
         $nudge_description = $('#nudge-description'),
-        $nudge_blog_link = $('#nudge-blog-link');
+        $nudge_blog_link = $('#nudge-blog-link'),
+        $nudge_blog_button = $('a.blog-post-button'),
+        nudge_blog_button_base_text = $nudge_blog_button.text().trim(),
+        nudge_blog_button_base_url = 'http://highhearthealing.com/blog/';
     
     
     // Gutsy Nudge dropdown functionality
@@ -30,6 +33,11 @@
                         // Place response data into nudge-single template.
                         $nudge_category_title.html(response.category_name);
                         $nudge_description.html(response.nudge_description);
+                        
+                        // Blog Posts button
+                        var blog_category = str_to_slug(response.category_name);
+                        $nudge_blog_button.attr('href', nudge_blog_button_base_url + blog_category)
+                            .text(nudge_blog_button_base_text + ' ' + response.category_name);
                         
                         // Add a link to a blog post if there is one.
                         if (response.blog_link != "") {

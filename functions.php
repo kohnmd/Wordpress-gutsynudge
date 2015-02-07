@@ -96,7 +96,7 @@ function gutsy_nudge_dropdown() {
 	
 	// Single nudge template.
 	$output .= '<div id="nudge-single">';
-        $output .= '<h2>Your Gutsy Nudge for <span class="nudge-category"></span></h2>';
+        $output .= '<h2>Your <span class="stylish-font">Gutsy Nudge</span> for <span class="nudge-category stylish-font"></span></h2>';
 	    $output .= '<div id="nudge-description"></div>';
 	    $output .= '<a href="" id="nudge-blog-link">Read more...</a>';
 	$output .= '</div><!-- #nudge-single -->';

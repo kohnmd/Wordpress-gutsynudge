@@ -30,6 +30,7 @@ Template:     chillout
 
 
 
+/* JF Spring Fair */
 @font-face {
     font-family: 'jfspringfairregular';
     src: url('fonts/jfspfair-webfont.eot');
@@ -40,8 +41,43 @@ Template:     chillout
          url('fonts/jfspfair-webfont.svg#jfspringfairregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
+
+/* Anastasia */
+@font-face {
+  font-family: 'Anastasia';
+  src: url('fonts/Anastasia.eot?#iefix') format('embedded-opentype'),  url('fonts/Anastasia.woff') format('woff'), url('fonts/Anastasia.ttf')  format('truetype'), url('fonts/Anastasia.svg#Anastasia') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Deftone Stylus */
+@font-face {
+  font-family: 'DeftoneStylus';
+  src: url('fonts/DeftoneStylus.eot?#iefix') format('embedded-opentype'),  url('fonts/DeftoneStylus.woff') format('woff'), url('fonts/DeftoneStylus.ttf')  format('truetype'), url('fonts/DeftoneStylus.svg#DeftoneStylus') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Haymaker */
+@font-face {
+  font-family: 'Haymaker';
+  src: url('fonts/Haymaker.eot?#iefix') format('embedded-opentype'),  url('fonts/Haymaker.woff') format('woff'), url('fonts/Haymaker.ttf')  format('truetype'), url('fonts/Haymaker.svg#Haymaker') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Titania */
+@font-face {
+    font-family: 'Titania';
+    src: url('fonts/Titania.ttf.woff') format('woff'),
+         url('fonts/Titania.ttf.svg#Titania') format('svg'),
+         url('fonts/Titania.ttf.eot'),
+         url('fonts/Titania.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 
 body.home #col-mask {
@@ -86,6 +122,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: contain;
 }
 
+.top-menu > .menu-item:after,
 .top-menu > .menu-item:hover:after,
 .top-menu > .menu-item.active:after,
 .top-menu > .menu-item.current-menu-item:after {
@@ -116,6 +153,13 @@ a.a13-sc-button:hover {
     background: #4F7A92 !important;
 }
 
+.talk-to-intuitive-link {
+    margin-top: 3em;
+}
+
+.talk-to-intuitive-link p {
+    font-size: 1.4em !important;
+}
 
 
 /**
