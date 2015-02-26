@@ -98,7 +98,7 @@ function gutsy_nudge_dropdown() {
 	$output .= '<div id="nudge-single">';
         $output .= '<h2>Your <span class="stylish-font">Gutsy Nudge</span> for <span class="nudge-category stylish-font"></span></h2>';
 	    $output .= '<div id="nudge-description"></div>';
-	    $output .= '<a href="" id="nudge-blog-link">Read more...</a>';
+	    $output .= '<a href="" id="nudge-blog-link">Read more on the blog...</a>';
 	$output .= '</div><!-- #nudge-single -->';
 	
 	return $output;
@@ -129,6 +129,12 @@ function get_nudge_callback() {
             $return['success'] = true;
             $return['category_name'] = get_the_category_by_ID($category_id);
             $return['nudge_description'] = get_field('nudge_description', $post->ID);
+            
+            $return['blog_post_link'] = false;
+            $blog_post_link = get_field('blog_post_link', $post->ID);
+            if (!empty($blog_post_link['url'])) {
+                $return['blog_post_link'] = $blog_post_link['url'];
+            }
             
         } else {
             // Error

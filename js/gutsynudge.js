@@ -40,9 +40,14 @@
                             .text(nudge_blog_button_base_text + ' ' + response.category_name);
                         
                         // Add a link to a blog post if there is one.
-                        if (response.blog_link != "") {
-                            $nudge_description.append(
-                                $nudge_blog_link.clone().removeAttr('id').addClass('blog-link').prepend(' ')
+                        if (typeof response.blog_post_link != 'undefined' && response.blog_post_link != "") {
+                            console.log(response.blog_post_link);
+                            
+                            $nudge_description.children('p').last().append(
+                                $nudge_blog_link.clone().removeAttr('id')
+                                    .addClass('blog-link')
+                                    .attr('href', response.blog_post_link)
+                                    .prepend(' ')
                             );
                         }
                         
@@ -54,6 +59,9 @@
             }
         }
     });
+    
+    // Always reset the nudge dropdown when page first loads
+    reset_nudge_dropdown();
     
     // Utility function that turns a string into a slug
     function str_to_slug(str, sep) {
@@ -72,6 +80,11 @@
     	var rtrim_regex = new RegExp(sep+'*$', 'g');
     	return str.replace(rtrim_regex, "");
     	
+    }
+    
+    // Resets the nudge dropdown
+    function reset_nudge_dropdown() {
+        $('#nudge-dropdown').val('').trigger('chosen:updated');
     }
     
 }(jQuery));

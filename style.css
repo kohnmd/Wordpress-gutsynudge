@@ -21,51 +21,13 @@ Template:     chillout
 
 /**
  * white           FFFFFF
- * creme           FDF9F6
+ * creme           FDF9F6 / FDFAED
  * brown           432F25
  * light brown     695951 (80% opaque)
  * blue            4F7A92
  * light blue      7295A8 (80% opaque)
  */
 
-
-
-/* JF Spring Fair */
-@font-face {
-    font-family: 'jfspringfairregular';
-    src: url('fonts/jfspfair-webfont.eot');
-    src: url('fonts/jfspfair-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/jfspfair-webfont.woff2') format('woff2'),
-         url('fonts/jfspfair-webfont.woff') format('woff'),
-         url('fonts/jfspfair-webfont.ttf') format('truetype'),
-         url('fonts/jfspfair-webfont.svg#jfspringfairregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Anastasia */
-@font-face {
-  font-family: 'Anastasia';
-  src: url('fonts/Anastasia.eot?#iefix') format('embedded-opentype'),  url('fonts/Anastasia.woff') format('woff'), url('fonts/Anastasia.ttf')  format('truetype'), url('fonts/Anastasia.svg#Anastasia') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Deftone Stylus */
-@font-face {
-  font-family: 'DeftoneStylus';
-  src: url('fonts/DeftoneStylus.eot?#iefix') format('embedded-opentype'),  url('fonts/DeftoneStylus.woff') format('woff'), url('fonts/DeftoneStylus.ttf')  format('truetype'), url('fonts/DeftoneStylus.svg#DeftoneStylus') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
-/* Haymaker */
-@font-face {
-  font-family: 'Haymaker';
-  src: url('fonts/Haymaker.eot?#iefix') format('embedded-opentype'),  url('fonts/Haymaker.woff') format('woff'), url('fonts/Haymaker.ttf')  format('truetype'), url('fonts/Haymaker.svg#Haymaker') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /* Titania */
 @font-face {
@@ -78,15 +40,17 @@ Template:     chillout
     font-style: normal;
 }
 
+.stylish-font {
+    font-family: Titania, Raleway, sans-serif;
+}
 
-
-body.home #col-mask {
+#col-mask {
     margin-top: 220px;
 }
 
 body.home .real-content {
     text-align: center;
-    color: #432f25;
+    color: #432f25;asdf
     font-size: 16px;
     line-height: 26px;
 }
@@ -101,6 +65,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #432f25;
 }
 
+h2.page-title {
+    text-align: center;
+}
 
 
 /* logo shield: w 384 x 201 h */
@@ -136,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #nudge-single,
 #nudge-long-description,
-#nudge-more-link,
+#nudge-blog-link,
 .nudge-links {
     display: none;
 }
@@ -160,6 +127,18 @@ a.a13-sc-button:hover {
 .talk-to-intuitive-link p {
     font-size: 1.4em !important;
 }
+
+.single-nudge .a13-sc-button_wrapper {
+    text-align: center;
+}
+
+.single-nudge a.a13-sc-button {
+    white-space: initial;
+    font-weight: normal;
+    text-align: center;
+}
+
+
 
 
 /**
