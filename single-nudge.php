@@ -79,6 +79,12 @@ get_header();
                                             <?php
                                         }
                                         ?>
+                                        <p class="author-meta">
+                                            &mdash; Nudge by
+                                            <a href="<?php // MIKE; ?>#<?php echo sanitize_title(get_the_author_meta('display_name')); ?>">
+                                                <?php the_author_meta('display_name'); ?>
+                                            </a>
+                                        </p>
                                     </div>
                                 </div>
                                 

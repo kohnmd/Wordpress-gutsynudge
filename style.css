@@ -138,6 +138,11 @@ a.a13-sc-button:hover {
     text-align: center;
 }
 
+#nudge-description .author-meta {
+    text-align: right;
+    font-style: italic;
+    font-size: .9em;
+}
 
 
 
