@@ -37,6 +37,7 @@ function pluginname_ajaxurl() {
         </script>';
 }
 
+
 /**
  * Add your functions below, and overwrite native theme functions.
  */
@@ -74,7 +75,7 @@ function nudge_default_category($post_id) {
 }
 
 
-// Create shortcode for nudges.
+// Create shortcode for nudge dropdown.
 add_shortcode( 'gutsy-nudge', 'gutsy_nudge_dropdown' );
 function gutsy_nudge_dropdown() {
 	$categories = get_categories(array(
@@ -94,13 +95,6 @@ function gutsy_nudge_dropdown() {
         $output .= '</select>';
 	$output .= '</div><!-- #nudge-select -->';
 	
-	// Single nudge template.
-	$output .= '<div id="nudge-single">';
-        $output .= '<h2>Your <span class="stylish-font">Gutsy Nudge</span> for <span class="nudge-category stylish-font"></span></h2>';
-	    $output .= '<div id="nudge-description"></div>';
-	    $output .= '<a href="" id="nudge-blog-link">Read more on the blog...</a>';
-	$output .= '</div><!-- #nudge-single -->';
-	
 	return $output;
 }
 
@@ -114,7 +108,7 @@ function get_nudge_callback() {
     $return = array();
     
     if (!empty($_POST['category_id'])) {
-        $category_id = $_POST['category_id'];
+        $category_id = intval($_POST['category_id']);
         
         $args = array(
             'post_type'         => 'nudge',
@@ -127,15 +121,7 @@ function get_nudge_callback() {
         
         if (!empty($post)) {
             $return['success'] = true;
-            $return['category_name'] = get_the_category_by_ID($category_id);
-            $return['nudge_description'] = get_field('nudge_description', $post->ID);
-            
-            $return['blog_post_link'] = false;
-            $blog_post_link = get_field('blog_post_link', $post->ID);
-            if (!empty($blog_post_link['url'])) {
-                $return['blog_post_link'] = $blog_post_link['url'];
-            }
-            
+            $return['nudge_url'] = get_permalink($post->ID) . '?' . http_build_query(array('c' => $category_id));
         } else {
             // Error
             $return['error'] = true;
