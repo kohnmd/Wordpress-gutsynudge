@@ -45,11 +45,11 @@ Template:     chillout
 }
 
 #col-mask {
-    margin-top: 220px;
+    margin-top: 180px;
 }
 
-.page #col-mask {
-    margin-top: 180px;
+.home #col-mask {
+    margin-top: 220px;
 }
 
 body.home .real-content {
@@ -126,6 +126,11 @@ h2.page-title {
 
 .authors .author {
     padding: 3em 0;
+}
+
+.author-anchor {
+    position: relative;
+    top: -3em;
 }
 
 .author-image{
