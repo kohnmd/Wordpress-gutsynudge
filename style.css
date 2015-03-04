@@ -131,6 +131,7 @@ h2.page-title {
 .author-anchor {
     position: relative;
     top: -3em;
+    font-size: 0px;
 }
 
 .author-image{
