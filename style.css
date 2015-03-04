@@ -48,6 +48,10 @@ Template:     chillout
     margin-top: 220px;
 }
 
+.page #col-mask {
+    margin-top: 180px;
+}
+
 body.home .real-content {
     text-align: center;
     color: #432f25;asdf
@@ -89,11 +93,95 @@ h2.page-title {
     background-size: contain;
 }
 
+#header:hover #logo {
+    top: 0px !important;
+}
+
+#header:hover #logo, .top-menu, .top-menu li {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+
+.top-menu {
+    visibility: hidden;
+}
+
 .top-menu > .menu-item:after,
 .top-menu > .menu-item:hover:after,
 .top-menu > .menu-item.active:after,
 .top-menu > .menu-item.current-menu-item:after {
     border-bottom: 2px solid #4F7A92;
+}
+
+
+.authors {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 100px;
+    box-sizing: border-box;
+}
+
+.authors .author {
+    padding: 3em 0;
+}
+
+.author-image{
+    width: 30%;
+    margin-right: 5%;
+    float: left;
+}
+.author-image img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.author-content{
+    position: relative;
+    top: -5px;
+    width: 65%;
+    float: right;
+}
+.author-content h3,
+.author-content h6 {
+    text-align: left;
+}
+.author-content h6 {
+    margin-bottom: 7px;
+    color: #8e8e8e;
+}
+.author-content h3 {
+    border-bottom: 1px solid #dbdbdb;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+@media only screen and (max-width: 680px) {
+    .author-image {
+        width: 100%;
+        max-height: 200px;
+        float: none;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    .author-image img {
+        max-height: 200px;
+        width: auto;
+    }
+    
+    .author-content {
+        position: static;
+        width: 100%;
+        float: none;
+    }
+    .author-content h3,
+    .author-content h6 {
+        text-align: center;
+    }
 }
 
 
