@@ -73,6 +73,24 @@ h2.page-title {
     text-align: center;
 }
 
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background-color: #7295a8 !important;
+    color: #FFF !important;
+}
+
+.wpcf7-form textarea,
+.wpcf7-form textarea:hover,
+.wpcf7-form textarea:focus,
+.wpcf7-form input:not([type="submit"]),
+.wpcf7-form input:not([type="submit"]):hover,
+.wpcf7-form input:not([type="submit"]):focus,
+.wpcf7-form input.wpcf7-not-valid {
+    color: #432f25 !important;
+    background-color: transparent !important;
+    border: 1px solid #432f25 !important;
+}
+
 
 /* logo shield: w 384 x 201 h */
 
@@ -129,6 +147,9 @@ h2.page-title {
     letter-spacing: 1.5px;
 }
 
+.pure_page_wrapper {
+    margin-top: 0;
+}
 
 .authors {
     width: 100%;
