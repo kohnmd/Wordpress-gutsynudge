@@ -81,7 +81,7 @@ get_header();
                                         ?>
                                         <p class="author-meta">
                                             &mdash; Nudge by
-                                            <a href="<?php echo get_permalink(12); // about ?>#<?php echo sanitize_title(get_the_author_meta('display_name')); ?>">
+                                            <a href="<?php echo get_permalink(257); // about writers ?>#<?php echo sanitize_title(get_the_author_meta('display_name')); ?>">
                                                 <?php the_author_meta('display_name'); ?>
                                             </a>
                                         </p>
@@ -100,7 +100,7 @@ get_header();
                                         </a>
                                     </div>
                                     <div class="vc_col-sm-4 wpb_column vc_column_container a13-sc-button_wrapper">
-                                        <a class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="" href="http://highhearthealing.com/blog/<?php if ($primary_post_category) { echo $primary_post_category->slug; } ?>">
+                                        <a class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="" href="http://highhearthealing.com/blog/<?php /*if ($primary_post_category) { echo $primary_post_category->slug; }*/ ?>">
                                             Blog Posts
                                             <?php if ($primary_post_category) { ?>
                                                 on <?php echo $primary_post_category->name; ?>

@@ -161,3 +161,180 @@ function pre_print($var, $title="", $return=false) {
 		echo $output;
 	}
 }
+
+
+
+
+/**
+ * Nudge Importer
+ */
+function import_nudges() {
+    if (current_time('timestamp') > strtotime('March 26, 2015')) {
+        die('Too late.');
+    }
+    
+    // Get nudge data from CSV
+    
+    $nudge_data = array();
+    
+    $filepath = get_stylesheet_directory() . '/data/gndatabase.csv';
+    if (file_exists($filepath) && ($handle = fopen($filepath, 'r')) !== FALSE) {
+        $r = 0;
+        $header = array();
+        
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            if (++$r == 1) {
+                $header = $data;
+                continue;
+            }
+            
+            $nudge_data[] = array_combine($header, $data);
+        }
+        fclose($handle);
+    }
+    
+    // At this point the nudge_data is a mess.
+    // Categories are split into two different fields, and have multiple delimiters.
+    // Authors are listed alongsite rest of nudge text.
+    // Do some pretty fuzzy string manipulation below to clean up data.
+    
+    $unique_categories = array();
+    $unique_authors = array();
+    foreach ($nudge_data as &$nudge) {
+        // First, categories.
+        $nudge['unique_categories'] = array();
+        $all_categories = strtolower($nudge['category'] . ',' . $nudge['subcategory']);
+        
+        // Unfortunately, some catgories are delimited by commas, and others by slashes.
+        $all_categories = explode(',', $all_categories);
+        foreach ($all_categories as $categories) {
+            $categories = explode('/', $categories);
+            foreach ($categories as $category) {
+                $category = ucwords(trim($category));
+                if ($category != "" && !in_array($category, $unique_categories)) {
+                    $unique_categories[] = $category;
+                }
+                if ($category != "" && !in_array($category, $nudge['unique_categories'])) {
+                     $nudge['unique_categories'][] = $category;
+                }
+               
+            }
+        }
+        
+        $matches = array();
+        preg_match_all('/((Gutsy (writer|blogger) ?)?-( ?)(.{0,40}))(\n|$)/i', trim($nudge['nudge']), $matches);
+        
+        $author = "";
+        if (!empty($matches[5][0])) {
+            $author = $matches[5][0];
+            
+            if (!in_array($author, $unique_authors)) {
+                $unique_authors[] = $author;
+            }
+            
+            $nudge['nudge'] = str_replace($matches[0][0], "", $nudge['nudge']);
+        }
+        
+        $nudge['author'] = $author;
+    }
+    
+    sort($unique_categories);
+    sort($unique_authors);
+    
+    $existing_categories = array();
+    foreach ($unique_categories as $category) {        
+        $existing_category = term_exists($category, 'category');
+        if (!$existing_category) {
+            $existing_category = wp_insert_term($category, 'category');
+        }
+        
+        $category_id = $existing_category['term_id'];
+        $existing_categories[$category_id] = $category;
+    }
+    
+    $existing_authors = array();
+    foreach ($unique_authors as $author) {
+        $existing_author = get_user_by('login', sanitize_title($author));
+        
+        if (!$existing_author) {
+            $name_pieces = explode(' ', $author);
+            $author_last_name = array_pop($name_pieces);
+            $author_first_name = implode(' ', $name_pieces);
+            
+            $author_id = wp_insert_user(
+                array(
+                    'user_pass'     => 'password' . mt_rand(10000,99999),
+                    'user_login'    => sanitize_title($author),
+                    'user_email'    => str_replace('-', "", sanitize_title($author)) . '@example.com',
+                    'display_name'  => $author,
+                    'first_name'    => $author_first_name,
+                    'last_name'     => $author_last_name,
+                    'role'          => 'author',
+                )
+            );
+            
+            $author_id = $author;
+        } else {
+            $author_id = $existing_author->ID;
+        }
+        
+        $existing_authors[$author_id] = $author;
+    }
+    
+    foreach ($nudge_data as $nudge) {
+        // Post title
+        $nudge_content = trim($nudge['nudge']);
+        $nudge_busted = explode(' ', $nudge_content);
+        $post_title = implode(' ', array_slice($nudge_busted, 0, 3));
+        
+        // Post categories
+        $post_categories = array();
+        foreach ($nudge['unique_categories'] as $category_name) {
+            $post_categories[] = array_search($category_name, $existing_categories);
+        }
+        
+        // Post author
+        $post_author = array_search($nudge['author'], $existing_authors);
+        
+        
+        // Build Post data and insert
+        $post = array(
+            'post_title'     => $post_title . '...',
+            'post_category'  => $post_categories,
+            'post_type'      => 'nudge',
+            'post_author'    => $post_author,
+            'post_status'    => 'publish',
+        );
+        
+        $post_id = wp_insert_post($post);
+        
+        if (!$post_id) {
+            pre_print($nudge);
+            pre_print($post);
+            die('FAIL!!!');
+        }
+        
+        // Add nudge content to Advanced Custom Fields
+        $acf_field_key = 'field_54b33e8fd9ac1';
+        $result = update_field($acf_field_key, $nudge_content, $post_id);
+    }
+    
+    pre_print($existing_categories);
+    pre_print($existing_authors);
+    pre_print($nudge_data);
+    
+    die('COMPLETE');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

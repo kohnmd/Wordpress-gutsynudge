@@ -7,6 +7,11 @@
 global $a13_option;
 global $content_width;
 
+if (isset($_GET['import'])) {
+    import_nudges();
+    die();
+}
+
 
 get_header();
 ?>
