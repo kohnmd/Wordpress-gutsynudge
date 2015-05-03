@@ -92,6 +92,7 @@ function gutsy_nudge_dropdown() {
         	foreach ($categories as $category) {
             	$output .= '<option value="' . $category->term_id . '">' . $category->name . '</option>';
         	}
+        	$output .= '<option value="ask">Can\'t find the subject you\'re looking for?</option>';
         $output .= '</select>';
 	$output .= '</div><!-- #nudge-select -->';
 	

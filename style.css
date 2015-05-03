@@ -87,6 +87,7 @@ input[type="submit"]:focus {
 .wpcf7-form input:not([type="submit"]):focus,
 .wpcf7-form input.wpcf7-not-valid {
     color: #432f25 !important;
+    cursor: text;
     background-color: transparent !important;
     border: 1px solid #432f25 !important;
 }
@@ -378,3 +379,7 @@ a.a13-sc-button:hover {
     color: #FFFFFF;
 }
 
+.chosen-container .chosen-results li.ask {
+    font-size: 1.1em;
+    text-align: center;
+}
