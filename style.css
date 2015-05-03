@@ -102,6 +102,7 @@ input[type="submit"]:focus {
     vertical-align: middle;
     position: absolute;
     left: calc(50% - 138px);
+    z-index: 1;
     line-height: 1;
     white-space: nowrap;
     
