@@ -149,9 +149,9 @@ function get_nudge_callback() {
  * Debugger
  */
 
-function pre_print($var, $title="", $return=false) {
-	$output = "";
-	$output .= ($title) ? '<strong>'.$title.'</strong>' : "";
+function pre_print($var, $title = '', $return = false) {
+	$output = '';
+	$output .= ($title) ? '<strong>'.$title.'</strong>' : '';
 	$output .= '<pre>';
 		$output .= print_r($var, true);
 	$output .= '</pre>';
@@ -170,7 +170,7 @@ function pre_print($var, $title="", $return=false) {
  * Nudge Importer
  */
 function import_nudges() {
-    if (current_time('timestamp') > strtotime('March 26, 2015')) {
+    if (current_time('timestamp') > strtotime('May 4, 2015')) {
         die('Too late.');
     }
     
@@ -212,10 +212,10 @@ function import_nudges() {
             $categories = explode('/', $categories);
             foreach ($categories as $category) {
                 $category = ucwords(trim($category));
-                if ($category != "" && !in_array($category, $unique_categories)) {
+                if ($category != '' && !in_array($category, $unique_categories)) {
                     $unique_categories[] = $category;
                 }
-                if ($category != "" && !in_array($category, $nudge['unique_categories'])) {
+                if ($category != '' && !in_array($category, $nudge['unique_categories'])) {
                      $nudge['unique_categories'][] = $category;
                 }
                
@@ -225,7 +225,7 @@ function import_nudges() {
         $matches = array();
         preg_match_all('/((Gutsy (writer|blogger) ?)?-( ?)(.{0,40}))(\n|$)/i', trim($nudge['nudge']), $matches);
         
-        $author = "";
+        $author = '';
         if (!empty($matches[5][0])) {
             $author = $matches[5][0];
             
@@ -233,7 +233,10 @@ function import_nudges() {
                 $unique_authors[] = $author;
             }
             
-            $nudge['nudge'] = str_replace($matches[0][0], "", $nudge['nudge']);
+            $nudge['nudge'] = str_replace($matches[0][0], '', $nudge['nudge']);
+        }
+        if ($author == '') {
+            $author = 'Julie Cobb';
         }
         
         $nudge['author'] = $author;
@@ -266,7 +269,7 @@ function import_nudges() {
                 array(
                     'user_pass'     => 'password' . mt_rand(10000,99999),
                     'user_login'    => sanitize_title($author),
-                    'user_email'    => str_replace('-', "", sanitize_title($author)) . '@example.com',
+                    'user_email'    => str_replace('-', '', sanitize_title($author)) . '@example.com',
                     'display_name'  => $author,
                     'first_name'    => $author_first_name,
                     'last_name'     => $author_last_name,
@@ -282,21 +285,29 @@ function import_nudges() {
         $existing_authors[$author_id] = $author;
     }
     
-    foreach ($nudge_data as $nudge) {
+    $post_titles = array();
+    foreach ($nudge_data as $nud) {
         // Post title
-        $nudge_content = trim($nudge['nudge']);
+        $post_title_len = 3;
+        $nudge_content = trim($nud['nudge']);
         $nudge_busted = explode(' ', $nudge_content);
         $post_title = implode(' ', array_slice($nudge_busted, 0, 3));
         
+        while (in_array($post_title, $post_titles)
+            && strlen($post_title) < strlen($nudge_content)
+        ) {
+            $post_title = implode(' ', array_slice($nudge_busted, 0, ++$post_title_len));
+        }
+        $post_titles[] = $post_title;
+        
         // Post categories
         $post_categories = array();
-        foreach ($nudge['unique_categories'] as $category_name) {
+        foreach ($nud['unique_categories'] as $category_name) {
             $post_categories[] = array_search($category_name, $existing_categories);
         }
         
         // Post author
-        $post_author = array_search($nudge['author'], $existing_authors);
-        
+        $post_author = array_search($nud['author'], $existing_authors);
         
         // Build Post data and insert
         $post = array(
@@ -310,7 +321,7 @@ function import_nudges() {
         $post_id = wp_insert_post($post);
         
         if (!$post_id) {
-            pre_print($nudge);
+            pre_print($nud);
             pre_print($post);
             die('FAIL!!!');
         }
