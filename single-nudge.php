@@ -90,17 +90,17 @@ get_header();
                                 
                                 <div class="vc_row wpb_row vc_inner vc_row-fluid">
                                     <div class="vc_col-sm-4 wpb_column vc_column_container a13-sc-button_wrapper">
-                                        <a class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded another-nudge-button" title="" href="<?php echo home_url(); ?>">
+                                        <a href="<?php echo home_url(); ?>" class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded another-nudge-button" title="">
                                             <span>Get Another Nudge</span>
                                         </a>
                                     </div>
                                     <div class="vc_col-sm-4 wpb_column vc_column_container a13-sc-button_wrapper">
-                                        <a class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded email-question-button" title="" href="<?php // MIKE ?>">
-                                            <span>Email a Question</span>
+                                        <a href="<?php echo get_permalink(268); ?>" class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded email-question-button" title="">
+                                            <span>Ask a Question</span>
                                         </a>
                                     </div>
                                     <div class="vc_col-sm-4 wpb_column vc_column_container a13-sc-button_wrapper">
-                                        <a class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="" href="http://highhearthealing.com/blog/<?php /*if ($primary_post_category) { echo $primary_post_category->slug; }*/ ?>">
+                                        <a href="http://highhearthealing.com/blog/<?php /*if ($primary_post_category) { echo $primary_post_category->slug; }*/ ?>" class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="">
                                             Blog Posts
                                             <?php if ($primary_post_category) { ?>
                                                 on <?php echo $primary_post_category->name; ?>
