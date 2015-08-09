@@ -380,6 +380,29 @@ a.a13-sc-button:hover {
     color: #FFFFFF;
 }
 
+.chosen-container .chosen-results::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.chosen-container .chosen-results::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+
+.chosen-container .chosen-results::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+
+.chosen-container .chosen-results::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid #4F7A92;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.chosen-container .chosen-results::-webkit-scrollbar-track {
+    background-color: #4F7A92;
+    border-radius: 8px;
+}
+
 .chosen-container .chosen-results li.ask {
     font-size: 1.1em;
     text-align: center;
