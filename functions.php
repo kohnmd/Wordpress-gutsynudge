@@ -1,5 +1,9 @@
 <?php
 
+if (!defined('GN_THEME_VER')) {
+    define('GN_THEME_VER', '1.0.1');
+}
+
 /**
  * Child theme scripts.
  */
@@ -8,7 +12,7 @@ function gutsynudge_scripts(){
     
     // Chillout child theme styles.
     $user_css_deps = $wp_styles->registered['user-css']->deps;
-    wp_enqueue_style( 'style-gutsynudge', get_stylesheet_directory_uri() . '/style.css', array_merge(array('style-chosen'), $user_css_deps), A13_THEME_VER );
+    wp_enqueue_style( 'style-gutsynudge', get_stylesheet_directory_uri() . '/style.css', array_merge(array('style-chosen'), $user_css_deps), GN_THEME_VER );
 
     // Change loading order of user.css
     array_push($user_css_deps, array('child-style'));
