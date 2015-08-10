@@ -23,7 +23,7 @@ function gutsynudge_scripts(){
     
     
     // Custom JS
-    wp_enqueue_script( 'gutsynudge', get_stylesheet_directory_uri() . '/js/gutsynudge.js', array('jquery', 'jquery_chosen'), '20150113', true );
+    wp_enqueue_script( 'gutsynudge', get_stylesheet_directory_uri() . '/js/gutsynudge.js', array('jquery', 'jquery_chosen'), GN_THEME_VER, true );
     
     // jQuery Chosen
     wp_enqueue_script( 'jquery_chosen', get_stylesheet_directory_uri() . '/js/chosen.jquery.min.js', array('jquery'), '1.3.0', true );

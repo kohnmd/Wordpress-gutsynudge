@@ -1,30 +1,34 @@
 Chillout options > Layout > General > Custom image for background
-    - upload black-white-marble.jpg
+    to: white-marble.jpg
 
 Chillout options > Layout > General > Custom background color
-    - set to white
+    to: white
 
 Chillout options > Layout > Buttons and links > Button's background color
-    - set to 55438f
+    from: 4f7a91
+    to:   55438f
 
 Chillout options > Layout > Buttons and links > Links color
-    - set to 55438f
+    from: 4f7a92
+    to:   55438f
 
 Chillout options > Layout > Buttons and links > Links color on-hover
-    - set to 7769a5
+    from: 7295a8
+    to:   7769a5
 
 Chillout options > Layout > Navigation Menu > Font color of the navigation menu
-    - set to 55438f
+    from: 4f7a92
+    to:   55438f
 
 Chillout options > Layout > Navigation Menu > Text color of submenu items
-    - set to 7769a5
+    from: 7295a8
+    to:   7769a5
 
 Chillout options > Layout > Navigation Menu > Text color of hover/active submenu items
-    - set to 7769a5
+    from: 7295a8
+    to:   7769a5
 
 Chillout options > Custom Style > Valid css text
-    add:
-    
     @media only screen and (max-device-width: 600px) {
         h2 {
             font-size: 1.6rem !important;
