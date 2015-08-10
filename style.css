@@ -26,6 +26,8 @@ Template:     chillout
  * light brown     695951 (80% opaque)
  * blue            4F7A92
  * light blue      7295A8 (80% opaque)
+ * purple          2A166D
+ * light purple    55458a (80% opaque)
  */
 
 
@@ -75,7 +77,7 @@ h2.page-title {
 
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-    background-color: #7295a8 !important;
+    background-color: #55458a !important;
     color: #FFF !important;
 }
 
@@ -132,7 +134,8 @@ input[type="submit"]:focus {
 .top-menu > .menu-item:hover:after,
 .top-menu > .menu-item.active:after,
 .top-menu > .menu-item.current-menu-item:after {
-    border-bottom: 2px solid #4F7A92;
+    border-bottom: 2px solid #2A166D;
+    /*border-bottom: 2px solid #FFF;*/
 }
 
 .top-menu ul.sub-menu {
@@ -242,14 +245,14 @@ input[type="submit"]:focus {
 
 a.vc_btn {
     color: #FFFFFF;
-    background: #4F7A92 !important;
+    background: #2A166D !important;
 }
 
 a.vc_btn_white:hover,
 a.a13-sc-button:hover {
     opacity: 0.9 !important;
     color: #FFFFFF !important;
-    background: #4F7A92 !important;
+    background: #2A166D !important;
 }
 
 .talk-to-intuitive-link {
@@ -291,15 +294,15 @@ a.a13-sc-button:hover {
     line-height: 50px;
     font-size: 1.5em;
     color: #FFFFFF;
-    border: 1px solid #4F7A92;
+    border: 1px solid #2A166D;
     
     
-    background-color: #7295A8;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #7295A8), color-stop(70%, #4F7A92));
-    background: -webkit-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
-    background: -moz-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
-    background: -o-linear-gradient(top, #7295A8 20%, #4F7A92 70%);
-    background: linear-gradient(top, #7295A8 20%, #4F7A92 70%);
+    background-color: #55458a;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #55458a), color-stop(70%, #2A166D));
+    background: -webkit-linear-gradient(top, #55458a 20%, #2A166D 70%);
+    background: -moz-linear-gradient(top, #55458a 20%, #2A166D 70%);
+    background: -o-linear-gradient(top, #55458a 20%, #2A166D 70%);
+    background: linear-gradient(top, #55458a 20%, #2A166D 70%);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
     
 }
@@ -334,16 +337,16 @@ a.a13-sc-button:hover {
 
 .chosen-container-active.chosen-with-drop .chosen-single,
 .chosen-container .chosen-drop {
-    border: 1px solid #7295A8;
+    border: 1px solid #55458a;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single {
-    background-color: #7295A8;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #7295A8), color-stop(40%, #4F7A92));
-    background: -webkit-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
-    background: -moz-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
-    background: -o-linear-gradient(top, #7295A8 20%, #4F7A92 40%);
-    background: linear-gradient(top, #7295A8 20%, #4F7A92 40%);
+    background-color: #55458a;
+    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #55458a), color-stop(40%, #2A166D));
+    background: -webkit-linear-gradient(top, #55458a 20%, #2A166D 40%);
+    background: -moz-linear-gradient(top, #55458a 20%, #2A166D 40%);
+    background: -o-linear-gradient(top, #55458a 20%, #2A166D 40%);
+    background: linear-gradient(top, #55458a 20%, #2A166D 40%);
     
     box-shadow: none;
     border-bottom: 0;
@@ -351,7 +354,7 @@ a.a13-sc-button:hover {
 
 .chosen-container .chosen-drop {
     font-size: 1.2em;
-    background-color: #4F7A92;
+    background-color: #2A166D;
     border-top: 0;
 }
 
@@ -362,7 +365,7 @@ a.a13-sc-button:hover {
   background: -moz-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
   background: -o-linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
   background: linear-gradient(top, #ffffff 20%, #f6f6f6 50%, #eeeeee 52%, #f4f4f4 100%);
-  color: #4F7A92;
+  color: #2A166D;
 }
 
 .chosen-container-active.chosen-with-drop .chosen-single div b:before {
@@ -394,16 +397,28 @@ a.a13-sc-button:hover {
 
 .chosen-container .chosen-results::-webkit-scrollbar-thumb {
     border-radius: 8px;
-    border: 2px solid #4F7A92;
+    border: 2px solid #2A166D;
     background-color: rgba(0, 0, 0, .5);
 }
 
 .chosen-container .chosen-results::-webkit-scrollbar-track {
-    background-color: #4F7A92;
+    background-color: #2A166D;
     border-radius: 8px;
 }
 
 .chosen-container .chosen-results li.ask {
     font-size: 1.1em;
     text-align: center;
+}
+
+
+@media only screen and (max-device-width: 600px) {
+    .home #col-mask,
+    #col-mask {
+        margin-top: 150px;
+    }
+    
+    h2 {
+        font-size: 1.6rem !important;
+    }
 }

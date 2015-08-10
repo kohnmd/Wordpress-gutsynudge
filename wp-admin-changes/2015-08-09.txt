@@ -1,0 +1,67 @@
+Chillout options > Layout > General > Custom image for background
+    - upload black-white-marble.jpg
+
+Chillout options > Layout > General > Custom background color
+    - set to white
+
+Chillout options > Layout > Buttons and links > Button's background color
+    - set to 55438f
+
+Chillout options > Layout > Buttons and links > Links color
+    - set to 55438f
+
+Chillout options > Layout > Buttons and links > Links color on-hover
+    - set to 7769a5
+
+Chillout options > Layout > Navigation Menu > Font color of the navigation menu
+    - set to 55438f
+
+Chillout options > Layout > Navigation Menu > Text color of submenu items
+    - set to 7769a5
+
+Chillout options > Layout > Navigation Menu > Text color of hover/active submenu items
+    - set to 7769a5
+
+Chillout options > Custom Style > Valid css text
+    add:
+    
+    @media only screen and (max-device-width: 600px) {
+        h2 {
+            font-size: 1.6rem !important;
+        }
+    }
+
+
+
+
+For purple navigation menu:
+
+
+Chillout options > Layout > Header > Background color
+    from: #FFFFFF
+    to:   #55438f
+
+Chillout options > Layout > Navigation Menu > Font color of the navigation menu
+    from: #55438f
+    to:   #FFFFFF
+
+
+Chillout options > Layout > Navigation Menu > Background color of submenu items
+    from: #FFFFFF
+    to:   #7769a5
+
+
+Chillout options > Layout > Navigation Menu > Text color of submenu items
+    from: #7769a5
+    to:   #FFFFFF
+    
+
+Chillout options > Layout > Navigation Menu > Background color of hover/active submenu items
+    from: #FFFFFF
+    to:   #7769a5
+    
+
+Chillout options > Layout > Navigation Menu > Text color of hover/active submenu items
+    from: #FFFFFF
+    to:   #ddd9e9
+

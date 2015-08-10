@@ -88,7 +88,7 @@ function gutsy_nudge_dropdown() {
     // Nudge select.
     $output = '<div id="nudge-select">';
         $output .= '<select id="nudge-dropdown" style="width: 50%;">';
-            $output .= '<option value=""></option>';
+            $output .= '<option value="">Where do you need a nudge?</option>';
         	foreach ($categories as $category) {
             	$output .= '<option value="' . $category->term_id . '">' . $category->name . '</option>';
         	}
