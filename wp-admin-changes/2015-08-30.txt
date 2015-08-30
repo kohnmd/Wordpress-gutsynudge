@@ -1,0 +1,24 @@
+Custom Fields > Nudge Content
+    
+    remove Blog Post Link
+    
+    add External Button Text
+        - Field Label: External Button Text
+        - Field Name: external_button_text
+        - Field Type: Text
+        - Field Instructions:
+            Customizable third button under nudge text. Enter the text of the button here. Defaults to "Blog Posts on [category]" and links to Highheart Healing. Use [category] to display the current nudge's category.
+        - Default Value: Blog Posts on [category]
+        - Placeholder Text: e.g. "Blog Posts on [category]", or "Videos About [category]"
+        - Formatting: No Formatting
+        - Character Limit: 50
+    
+    add External Button Link
+        - Field Label: External Button Link
+        - Field Name: external_button_link
+        - Field Type: Text
+        - Field Instructions:
+            Customizable third button under the nudge. Defaults to http://www.highhearthealing.com/blog. Can link anywhere, including a specific blog post or a YouTube channel.
+        - Default Value: http://www.highhearthealing.com/blog
+        - Placeholder Text: http://
+        - Formatting: No Formatting

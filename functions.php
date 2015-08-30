@@ -145,6 +145,19 @@ function get_nudge_callback() {
 }
 
 
+/**
+ * Misc Helpers
+ */
+
+function replace_category_placeholder($text, $catObj = null) {
+    $category_name = '';
+    if (is_object($catObj) && isset($catObj->name)) {
+        $category_name = $catObj->name;
+    }
+    
+    return preg_replace('/\[category\]/', $category_name, $text);
+}
+
 
 
 

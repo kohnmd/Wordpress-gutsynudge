@@ -100,11 +100,20 @@ get_header();
                                         </a>
                                     </div>
                                     <div class="vc_col-sm-4 wpb_column vc_column_container a13-sc-button_wrapper">
-                                        <a href="http://highhearthealing.com/blog/<?php /*if ($primary_post_category) { echo $primary_post_category->slug; }*/ ?>" class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="">
-                                            Blog Posts
-                                            <?php if ($primary_post_category) { ?>
-                                                on <?php echo $primary_post_category->name; ?>
-                                            <?php } ?>
+                                        <?php                                            
+                                        $external_button_text = 'Blog Posts on [category]';
+                                        if (get_field('external_button_text')) {
+                                            $external_button_text = get_field('external_button_text');
+                                        }
+                                        $external_button_text = replace_category_placeholder($external_button_text, $primary_post_category);
+                                        
+                                        $external_button_link = 'http://www.highhearthealing.com/blog/';
+                                        if (get_field('external_button_link')) {
+                                            $external_button_link = get_field('external_button_link');
+                                        }
+                                        ?>
+                                        <a href="<?php echo $external_button_link; ?>" class="a13-sc-button  vc_btn vc_btn_blue vc_btn_md vc_btn_rounded blog-post-button" title="">
+                                            <?php echo $external_button_text; ?>
                                         </a>
                                     </div>
                                 </div>
